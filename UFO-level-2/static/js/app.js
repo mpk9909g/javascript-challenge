@@ -33,11 +33,12 @@ tableData.forEach(function(populateUFOTable){
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("form");
+var form = d3.selectAll(".filter");
 
 // Create event handlers 
 button.on("click", runEnter);
-form.on("submit",runEnter);
+form.on("change",runEnter);
+
 
 function runEnter() {
 
