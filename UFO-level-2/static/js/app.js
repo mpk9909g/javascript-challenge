@@ -68,14 +68,18 @@ function runEnter() {
     tbody.html("");
   }
 
-  //build an object of the form inputs
+  // build an object of the form inputs
   let formArray = ["inputDate","inputCity", "inputState", "inputCountry", "inputShape"];
   let formValues = [inputValueDate, inputValueCity,inputValueState,inputValueCountry,inputValueShape];
   let formObject = {};
 
-  for (let i = 0; i < formArray.length; i++){
-      formObject[formArray[i]] = formValues[i];
-  }
+  // for (let i = 0; i < formArray.length; i++){
+  //     formObject[formArray[i]] = formValues[i];
+  // }
+
+
+  formArray.forEach((input,i) => formObject[input] = formValues[i]);
+
 
   // console.log("The objects entered are:");
   // console.log(formObject);
@@ -87,7 +91,7 @@ function runEnter() {
   let filteredData = [];
   for (let j = 0; j < tableData.length; j++) {
     console.log(`tableData ${j}`);
-    console.log(tableData[j]);
+    // console.log(tableData[j]);
     if (((formObject.inputDate === tableData[j].datetime) || (formObject.inputDate.length === 0)) 
       && ((formObject.inputCity === tableData[j].city) || (formObject.inputCity.length === 0)) 
       && ((formObject.inputState === tableData[j].state) || (formObject.inputState.length === 0)) 
